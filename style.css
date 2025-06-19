@@ -1,0 +1,221 @@
+/* Remove default margin and padding from the whole page */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(224, 224, 224);
+}
+
+/* Use Google Fonts for the whole page */
+/* Try Merriweather first, then Roboto Slab, then Open Sans, then any serif font */
+body {
+  font-family: 'Merriweather', 'Roboto Slab', 'Open Sans', serif;
+}
+
+/* Style for the hero section box */
+.hero-section {
+  background: linear-gradient(to right, #145894 0%, #1d89d6 100%);
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Hero image */
+.hero-section img {
+  width: 120px;
+  display: block;
+  margin: 20px auto 0 auto;
+}
+
+/* Hero main heading */
+.hero-section h1 {
+  font-size: 3.5em;
+  margin: 20px 0 10px 0;
+  color: white;
+}
+
+/* Hero paragraph */
+.hero-section p {
+  font-size: 1.6em;
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+  display: inline-block;
+  max-width: 600px;
+  padding: 12px 18px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Timeline section - horizontal scroll */
+.timeline-cards {
+  background-color: rgb(224, 224, 224);
+  margin: 40px 0 40px 0; /* Increased top and bottom margin */
+  padding: 40px 0 0 0;   /* Increased top padding */
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 1096px;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Enable horizontal scroll snapping */
+  scroll-snap-type: x mandatory;
+  /* Smooth scrolling for a better effect */
+  scroll-behavior: smooth;
+  /* Hide vertical scrollbar if any */
+  scrollbar-width: thin;
+}
+
+/* Each card */
+.timeline-cards > div {
+  position: relative;
+  width: 250px;
+  margin: 0 12px;
+  border: 1px solid #ddd;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  padding: 12px;
+  vertical-align: top;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  overflow: hidden;
+  display: inline-block;
+
+  /* Make each card a snap point */
+  scroll-snap-align: start;
+}
+
+/* Content wrapper (image + headings) */
+.timeline-cards > div .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Images */
+.timeline-cards > div .content img {
+  width: 250px;         /* Set the width to 250 pixels */
+  height: 100px;        /* Set the height to 100 pixels */
+  object-fit: cover;    /* Crop the image to fit the box */
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+/* Headings */
+.timeline-cards > div .content h2,
+.timeline-cards > div .content h3 {
+  text-align: center;
+  margin: 6px 0;
+  position: relative;
+  z-index: 2;
+  max-width: 226px;           /* 250px card width - 2*12px padding */
+  white-space: nowrap;        /* Prevent wrapping */
+  overflow: visible;          /* Show all text */
+  text-overflow: unset;       /* Remove ellipsis */
+  display: block;
+  font-size: clamp(0.8em, 2vw, 1.2em); /* Shrink font if needed */
+}
+
+/* Overlay */
+.timeline-cards > div .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(21, 80, 122, 0.95);
+  color: #145894;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  overflow-wrap: break-word;  /* Wrap long words */
+  overflow: auto;             /* scroll if too tall */
+}
+
+/* Show overlay on hover */
+.timeline-cards > div:hover .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* Paragraph inside overlay */
+.timeline-cards > div .overlay p {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  word-wrap: break-word;
+  white-space: normal;        /* ensure text wraps */
+  overflow-wrap: break-word;
+  line-height: 1.4em;
+  color: #ffffff;
+}
+
+/* 3-Column Content Section */
+.three-column-section {
+  margin: 40px 0 40px 0;   /* Add space above and below */
+  padding: 40px 0 40px 0;  /* Add padding above and below */
+  background: #cacaca;     /* Optional: subtle background for separation */
+}
+
+/* Make the site look good on smaller screens */
+@media (max-width: 600px) {
+  /* Make the hero section shorter and text smaller */
+  .hero-section {
+    height: auto; /* Let it grow with content */
+    padding: 20px 0;
+  }
+  .hero-section h1 {
+    font-size: 2em; /* Smaller heading */
+    margin: 12px 0 8px 0;
+  }
+  .hero-section p {
+    font-size: 1em; /* Smaller paragraph */
+    padding: 8px 10px;
+    max-width: 95vw; /* Use most of the screen */
+  }
+  .hero-section img {
+    width: 80px; /* Smaller logo */
+  }
+
+  /* Timeline section: stack cards vertically on small screens */
+  .timeline-cards {
+    display: block;           /* Remove horizontal scrolling */
+    white-space: normal;      /* Allow normal wrapping */
+    overflow-x: visible;      /* No horizontal scroll */
+    margin: 24px 0 24px 0;   /* Slightly less margin for mobile */
+    padding: 16px 0 0 0;
+    max-width: 100vw;
+  }
+  .timeline-cards > div {
+    display: block;           /* Stack each card vertically */
+    width: 95vw;              /* Card fills most of the screen */
+    min-width: 0;             /* Remove min-width for flexibility */
+    margin: 12px auto;        /* Center cards vertically */
+    padding: 8px;
+  }
+  .timeline-cards > div .content img {
+    width: 100%;              /* Image fills card width */
+    height: 80px;             /* Shorter image for mobile */
+    display: block;
+    margin: 0 auto 8px auto;  /* Center image */
+  }
+  .timeline-cards > div .content h2,
+  .timeline-cards > div .content h3 {
+    font-size: 1em; /* Smaller headings */
+    margin: 4px 0;
+  }
+  .timeline-cards > div .overlay {
+    font-size: 0.95em; /* Slightly smaller overlay text */
+    padding: 8px;
+  }
+  .three-column-section {
+    margin: 24px 0 24px 0;
+    padding: 16px 0 16px 0;
+  }
+}
