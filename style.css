@@ -61,7 +61,6 @@ body {
   max-width: 1096px;
   margin-left: auto;
   margin-right: auto;
-
   /* Enable horizontal scroll snapping */
   scroll-snap-type: x mandatory;
   /* Smooth scrolling for a better effect */
@@ -77,13 +76,12 @@ body {
   margin: 0 12px;
   border: 1px solid #ddd;
   background-color: rgb(255, 255, 255);
-  border-radius: 8px;
+  border-radius: 0;
   padding: 12px;
   vertical-align: top;
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
   overflow: hidden;
   display: inline-block;
-
   /* Make each card a snap point */
   scroll-snap-align: start;
 }
@@ -125,7 +123,7 @@ body {
   top: 0; left: 0; right: 0; bottom: 0;
   background-color: rgba(21, 80, 122, 0.95);
   color: #145894;
-  border-radius: 8px;
+  border-radius: 0;
   padding: 12px;
   display: flex;
   justify-content: center;
@@ -154,6 +152,7 @@ body {
   overflow-wrap: break-word;
   line-height: 1.4em;
   color: #ffffff;
+  font-size: clamp(0.85em, 1.5vw, 0.9em);
 }
 
 /* 3-Column Content Section */
@@ -161,6 +160,29 @@ body {
   margin: 40px 0 40px 0;   /* Add space above and below */
   padding: 40px 0 40px 0;  /* Add padding above and below */
   background: #cacaca;     /* Optional: subtle background for separation */
+}
+
+.subscription-form {
+  margin: 40px 0 40px 0;   /* Space above and below the section */
+  padding: 32px 0 32px 0;  /* Padding inside the section */
+  border-radius: 8px;      /* Optional: rounded corners for the section */
+}
+
+.subscription-form > h2 {
+  align-items: center;
+  text-align: center;
+  margin: 30px 0 30px 0;
+}
+
+.subscription-form > p {
+  text-align: center;
+  margin: 0 0 20px 0;
+  font-size: 1.2em;
+  color: rgb(60, 60, 228);
+}
+
+.footer {
+  background: #cacaca;
 }
 
 /* Make the site look good on smaller screens */
