@@ -13,7 +13,7 @@ body {
 
 /* Style for the hero section box */
 .hero-section {
-  background: linear-gradient(to right, #145894 0%, #1d89d6 100%);
+  background: linear-gradient(to right, #0f3f69 0%, #1666a0 100%);
   border: none;
   padding: 0;
   margin: 0;
@@ -36,6 +36,7 @@ body {
   font-size: 3.5em;
   margin: 20px 0 10px 0;
   color: white;
+  text-align: center;
 }
 
 /* Hero paragraph */
@@ -121,8 +122,7 @@ body {
 .timeline-cards > div .overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(21, 80, 122, 0.95);
-  color: #145894;
+  background-color: rgba(10, 50, 78, 0.97);
   border-radius: 0;
   padding: 12px;
   display: flex;
@@ -159,7 +159,13 @@ body {
 .three-column-section {
   margin: 40px 0 40px 0;   /* Add space above and below */
   padding: 40px 0 40px 0;  /* Add padding above and below */
-  background: #cacaca;     /* Optional: subtle background for separation */
+  background: #c0c0c0;     /* Optional: subtle background for separation */
+}
+
+.scroll-text > p{
+  text-align: center;
+  font-size: 1.1em;
+  color: rgb(0, 0, 0);
 }
 
 .subscription-form {
@@ -171,7 +177,7 @@ body {
 .subscription-form > h2 {
   align-items: center;
   text-align: center;
-  margin: 30px 0 30px 0;
+  margin: 30px 0 20px 0;
 }
 
 .subscription-form > p {
@@ -182,7 +188,57 @@ body {
 }
 
 .footer {
-  background: #cacaca;
+  background: #102542;   /* Dark blue for strong contrast */
+  color: #f9fafb;        /* Light text */
+}
+
+.footer a {
+  color: #ffffff;        
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+/* RTL support */
+:dir(rtl) body,
+[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+:dir(rtl) .hero-section,
+[dir="rtl"] .hero-section,
+:dir(rtl) .three-column-section,
+[dir="rtl"] .three-column-section,
+:dir(rtl) .subscription-form,
+[dir="rtl"] .footer {
+  text-align: right;
+}
+
+:dir(rtl) .timeline-cards,
+[dir="rtl"] .timeline-cards {
+  direction: rtl;
+}
+
+:dir(rtl) .timeline-cards > div,
+[dir="rtl"] .timeline-cards > div {
+  text-align: right;
+}
+
+:dir(rtl) .timeline-cards > div .content img,
+[dir="rtl"] .timeline-cards > div .content img {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+:dir(rtl) .timeline-cards > div .overlay,
+[dir="rtl"] .timeline-cards > div .overlay {
+  text-align: right;
+}
+
+/* RTL support for hero-section paragraph */
+:dir(rtl) .hero-section p,
+[dir="rtl"] .hero-section p {
+  text-align: right;
 }
 
 /* Make the site look good on smaller screens */
@@ -240,4 +296,9 @@ body {
     margin: 24px 0 24px 0;
     padding: 16px 0 16px 0;
   }
+  .three-column-section {
+    align-items: center; /* Center content */
+    text-align: center;
+  }
 }
+
